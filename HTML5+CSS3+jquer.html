@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>node-mongodb建站</title>
+<style type="text/css">
+*{padding:0;margin:0;font-size:24px;font-family:'微软雅黑';background:#f7f7ff}script{display:none}body{padding-left:20px}strong{display:inline-block;padding:5px 130px;margin:0 auto;text-align:center;background:#02a2bd;color:#fafffa;border:1px dotted #CCC}i{display:inline-block;font-style:normal;font-weight:bolder;color:red;background:#FFF;padding:5px 6px}b{display:inline-block;font-style:normal;font-weight:bolder;color:green;background:#FFF;margin:5px 0;padding:5px 6px;border-top:1px dotted #CCC;border-bottom:1px dotted #CCC}a{display:inline-block;font-style:normal;text-decoration:none;font-weight:bolder;color:blue;background:#FFF;margin:5px 0;padding:5px 6px;border-top:1px dotted #CCC;border-bottom:1px dotted #CCC;cursor:pointer}ul{list-style:none;text-align:center}ul li{display:inline-block}ul li a{float:left;font-size:16px;color:green}.c{position:fixed;right:50px;bottom:20px;height:50px;width:50px;text-align:center;line-height:40px;border:0}u{display:inline-block;width:0;height:0;border-left:10px solid transparent;border-right:10px solid transparent;border-bottom:10px solid green;background:0}sup{font-size:14px;background:0}em{overflow:hidden;height:29px;cursor:pointer}em,em i,em b{margin:10px;border-radius:4px;background-color:#FFF;padding:10px;font-size:13px;display:block;font-style:normal}em i,em b{font-size: 20px; padding: 10px 0;margin: 0}
+</style>
+
+</head>
+<body>
+<ul></ul>
+<strong>第一天</strong>
+:nth-child
+<em>案例
+p:nth-child(2) {background:#ff0000;} 
+ 选中P的第二个标签  
+ 规定属于其父元素的第二个子元素的每个 p 的背景色：</em>
+.find(":first") 
+<em>这个很神奇  获取父级的html，但是不获取父级，很奇怪
+获取第一个子节点</em>
+transform: translate3d(-740px, 0px, 0px);
+transition-timing-function: linear;
+transition-duration: 5000ms;
+<em>translate3d(x,y,z)	定义 3D 转换。
+transition-timing-function	规定速度效果的速度曲线。
+transition-duration	规定完成过渡效果需要多少秒或毫秒。
+
+<b>transition 的全名写法：</b>
+transition-property	规定设置过渡效果的 CSS 属性的名称。
+transition-duration	规定完成过渡效果需要多少秒或毫秒。
+transition-timing-function	规定速度效果的速度曲线。
+transition-delay	定义过渡效果何时开始。
+<b>transform 的各种用法：</b>
+none	定义不进行转换。	
+matrix(n,n,n,n,n,n)	定义 2D 转换，使用六个值的矩阵。	
+matrix3d(n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n)	定义 3D 转换，使用 16 个值的 4x4 矩阵。	
+translate(x,y)	定义 2D 转换。	
+translate3d(x,y,z)	定义 3D 转换。	
+translateX(x)	定义转换，只是用 X 轴的值。	
+translateY(y)	定义转换，只是用 Y 轴的值。	
+translateZ(z)	定义 3D 转换，只是用 Z 轴的值。	
+scale(x,y)	定义 2D 缩放转换。	
+scale3d(x,y,z)	定义 3D 缩放转换。	
+scaleX(x)	通过设置 X 轴的值来定义缩放转换。	
+scaleY(y)	通过设置 Y 轴的值来定义缩放转换。	
+scaleZ(z)	通过设置 Z 轴的值来定义 3D 缩放转换。	
+rotate(angle)	定义 2D 旋转，在参数中规定角度。	
+rotate3d(x,y,z,angle)	定义 3D 旋转。	
+rotateX(angle)	定义沿着 X 轴的 3D 旋转。	
+rotateY(angle)	定义沿着 Y 轴的 3D 旋转。	
+rotateZ(angle)	定义沿着 Z 轴的 3D 旋转。	
+skew(x-angle,y-angle)	定义沿着 X 和 Y 轴的 2D 倾斜转换。	
+skewX(angle)	定义沿着 X 轴的 2D 倾斜转换。	
+skewY(angle)	定义沿着 Y 轴的 2D 倾斜转换。	
+perspective(n)	为 3D 转换元素定义透视视图。</em>
+封装
+<em>封装，即隐藏对象的属性和实现细节，仅对外公开接口。
+封装的目的是增强安全性和简化编程，使用者不必了解具体的实现细节，而只是要通过外部接口，以特定的访问权限来使用类的成员
+这个主题案例，我采用的是面向接口编程的写法，简单的说就是将行为封装分布在各个对象中，并让这些对象自己各自负责自己的行为，这也是面向对象设计的一个优点
+就拿页面切换的效果来说，在某一时刻，元素A需要让页面进行切换，那么元素A不需要关心页面是怎么切换的，它只能要调用到一个接口方法能让页面切换就行了</em>
+@keyframes
+animation
+<em>/*规定 @keyframes 动画的名称。*/
+animation-name: person-slow; 
+/*规定动画完成一个周期所花费的秒或毫秒。默认是 0*/
+animation-duration: 950ms;
+/*规定动画被播放的次数。默认是 1。 infinite(循环播放)*/
+animation-iteration-count: infinite;
+/*动画切换的方式是一帧一帧的改变*/
+animation-timing-function: steps(1, start);</em>
+<strong>js的一些技巧</strong>
+我发现这些人喜欢这样编码 
+<em>var getValue = function(className) {
+    var $elem = $('' + className + '');
+        // 走路的路线坐标
+    return {
+        height: $elem.height(),
+        top: $elem.position().top
+    };
+};
+
+// 路的Y轴
+var pathY = function() {
+    var data = getValue('.a_background_middle');
+    return data.top + data.height / 2;
+}();
+<b>定义函数的时候 用var getVlaue = function(){}  这样的方式，而且就算是求值也要写到函数里面，get</b>
+<i>哇塞，这好像封装了两个方法，好厉害啊 点赞 这样好像有些不清晰，为了以后方便查找源，这里附上链接</i>
+<a>http://www.imooc.com/code/8897</a>
+</em>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+window.onload=function(){(function(){var htm=document.getElementsByTagName("body")[0];htm.innerHTML=htm.innerHTML.replace(/\n/g,"<br/>").replace(/ /g,"&nbsp;").replace(/\t/g,"&nbsp;&nbsp;&nbsp;&nbsp;").replace(/<strong>/g,"----------------------------------------<br/><br/><strong>").replace(/`/g," ")})();(function(){var htm=document.getElementsByTagName("a");for(var i=0;i<htm.length;i++){htm[i].target="_blank";htm[i].href=htm[i].innerHTML}})();(function(){var str=document.getElementsByTagName("strong");var mao=document.getElementsByTagName("ul")[0];var links=[];for(var i=0;i<str.length;i++){var strs=str[i].innerHTML.replace(/&nbsp;/g,"--");str[i].id=strs;links.push('<li><a href="#'+strs+'">'+strs+"</a></li>")}links.push('<a class="c" href="#"><u></u></a>');mao.innerHTML=links.join(" ")})();(function(){var is=document.getElementsByTagName("em");for(var i=0;i<is.length;i++){is[i].onclick=function(){if(this.style.overflow!="visible"){this.style.overflow="visible";this.style.height="auto";this.style.fontSize="20px"}else{this.style.overflow="hidden";this.style.height="29px";this.style.fontSize="13px"}}}})()};
+</script>
+
+</body>
+</html>
