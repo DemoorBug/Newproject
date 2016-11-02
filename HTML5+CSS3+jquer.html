@@ -69,7 +69,8 @@ animation-duration: 950ms;
 animation-iteration-count: infinite;
 /*动画切换的方式是一帧一帧的改变*/
 animation-timing-function: steps(1, start);</em>
-
+animation-play-state: paused;
+<em>暂停动画</em>
 <strong>js的一些技巧</strong>
 我发现这些人喜欢这样编码 
 <em>var getValue = function(className) {
@@ -90,9 +91,40 @@ var pathY = function() {
 <i>哇塞，这好像封装了两个方法，好厉害啊 点赞 这样好像有些不清晰，为了以后方便查找源，这里附上链接</i>
 <a>http://www.imooc.com/code/8897</a>
 </em>
-
-
-
+判断对象
+<em>obj instanceof Object   
+<b>上面的基于原型链判断的</b></em>
+jquery.transit
+<em>过度动画 和 animation很像
+    $boy.transition({
+        'left': $("#content").width() + 'px',
+    }, 10000, 'linear', function() {});
+</em>
+Promises
+<em>dtd.then(function() {
+   //操作1
+}).then(function() {
+   //操作2
+}).then(function() {
+  //操作3
+})
+<b>上面是一个案例模型，下面的才是一个例子</b>
+function animate2() {
+    var dtd = $.Deferred(); // 生成Deferred对象
+    $("#block4").animate({
+        width: "50%"
+    }, 2000, function() {
+        dtd.resolve(); // 改变Deferred对象的执行状态
+    });
+    return dtd;
+}
+<b>var anim = animate1();  为了让代码清晰</b>  
+ anim.then(function() {
+    $("#block3").text('block3动画动画直接结束');
+    return animate2();
+}).then(function() {
+    $("#block4").text('block4动画动画直接结束');
+});</em>
 
 
 

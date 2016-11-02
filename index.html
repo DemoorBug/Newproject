@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>慕课七夕主题</title>
+    <link rel="stylesheet" type="text/css" href="css/css.css">
+    <script src="http://img.mukewang.com/down/55ac9a860001a6c500000000.js"></script>
+</head>
+<body>
+    <div id='content'>
+        <ul class='content-wrap'>
+            <!-- 第一副画面 -->
+            <li> 页面1 </li>
+            <!-- 第二副画面 -->
+            <li> 页面2 </li>
+            <!-- 第三副画面 -->
+            <li> 页面3 </li>
+        </ul>
+    </div>
+    <button>123</button>
+    <!-- <script type="text/javascript" src="js/js.js"></script> -->
+    <script type="text/javascript">
+        var container = $('#content');
+        // 获得第一个子节点
+        var element =  container.find(':first');
+        // li页面数量
+        var slides = element.find('li');
+        // 获取容器尺寸
+        var width = container.width();
+        var height = container.height();
+        // 设置li页面总宽度
+        element.css({
+            width: (slides.length * width) + 'px',
+            height: height + 'px'
+        })
+        // 设置每一个页面li的宽度
+        // $.each(slides, function (index){
+        //     var slide = slides.eq(index); //获取到每一个li元素
+        //     slide.css({
+        //         width: width+'px',
+        //         height: height+'px'
+        //     })
+        // })
+        slides.css({
+            width: width+'px',
+            height: height+'px'
+        })
+        $('button').click(function(){
+            element.css({
+                'transition-timing-function':'linear',
+                'transition-duration':'5000ms',
+                'transform':'translate3d(-'+(width) * 2 +'px,0px,0px)'
+            })
+        })
+    </script>
+</body>
+</html>
