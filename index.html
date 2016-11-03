@@ -4,54 +4,71 @@
     <meta charset="UTF-8">
     <title>慕课七夕主题</title>
     <link rel="stylesheet" type="text/css" href="css/css.css">
-    <script src="http://img.mukewang.com/down/55ac9a860001a6c500000000.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/pageA.css">
+    <script src="http://libs.baidu.com/jquery/1.9.1/jquery.min.js"></script>
+    <script type="text/javascript" src="http://img.mukewang.com/down/55ac9ea30001ace700000000.js"></script>
+    <!-- <script src="http://img.mukewang.com/down/55ac9a860001a6c500000000.js"></script> -->
+    <style type="text/css">
+        .charector {
+            width: 151px;
+            height: 291px;
+            background: url(images/55ade248000198ae10550582.png) -0px -291px no-repeat;
+            position: absolute;
+            left: 6%;
+            top: 55%;
+        }
+        .slowWalkk {
+            animation: person-slow 950ms infinite steps(1,start);
+        }
+        .pauseWalk {
+            animation-play-state: paused;
+        }
+        @keyframes person-slow {
+            0% {
+                background-position: -0px -291px;
+            }
+            25% {
+                background-position: -602px -0;
+            }
+            50% {
+                background-position: -302px -291px;
+            }
+            75% {
+                background-position: -151px -291px;
+            }
+            100% {
+                background-position: -0px -291px;
+            }
+        }
+    </style>
 </head>
 <body>
     <div id='content'>
         <ul class='content-wrap'>
             <!-- 第一副画面 -->
-            <li> 页面1 </li>
+            <li> 
+                <div class="a_background">
+                    <div class="a_background_top"></div>
+                    <div class="a_background_middle"></div>
+                    <div class="a_background_botton"></div>
+                </div>
+            </li>
             <!-- 第二副画面 -->
             <li> 页面2 </li>
             <!-- 第三副画面 -->
             <li> 页面3 </li>
         </ul>
+        <!-- 小男孩 -->
+        <div id="boy" class="charector slowWalkk"></div>
     </div>
     <button>123</button>
-    <!-- <script type="text/javascript" src="js/js.js"></script> -->
+    <script type="text/javascript" src="js/js.js"></script>
+    <script src="js/Qixi.js"></script>
     <script type="text/javascript">
-        var container = $('#content');
-        // 获得第一个子节点
-        var element =  container.find(':first');
-        // li页面数量
-        var slides = element.find('li');
-        // 获取容器尺寸
-        var width = container.width();
-        var height = container.height();
-        // 设置li页面总宽度
-        element.css({
-            width: (slides.length * width) + 'px',
-            height: height + 'px'
-        })
-        // 设置每一个页面li的宽度
-        // $.each(slides, function (index){
-        //     var slide = slides.eq(index); //获取到每一个li元素
-        //     slide.css({
-        //         width: width+'px',
-        //         height: height+'px'
-        //     })
-        // })
-        slides.css({
-            width: width+'px',
-            height: height+'px'
-        })
-        $('button').click(function(){
-            element.css({
-                'transition-timing-function':'linear',
-                'transition-duration':'5000ms',
-                'transform':'translate3d(-'+(width) * 2 +'px,0px,0px)'
-            })
-        })
+
+        var distX = calculateDist('x',0.5);
+        var distY = calculateDist('y',0.5);
+        walkRun(10000,distX)
     </script>
 </body>
 </html>
