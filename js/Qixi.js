@@ -74,6 +74,23 @@ function BoyWalk() {
             'left':dist +'px',
             'top':disY ? disY : undefined
         },time);
-        return d1;
+        return di;
+    }
+
+    return {
+        //开始走路
+        walkTo: function(time,proportionX,proportionY) {
+            var distX = calculateDist('x',proportionX);
+            var distY = calculateDist('y',proportionY); 
+            return walkRun(time,distX,distY);
+        },
+        //停止走路
+        stopWalk: function(){
+            pauseWalk();
+        },
+        setColoer: function(value){
+            $boy.css('background-color',value)
+        }
     }
 }
+

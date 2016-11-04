@@ -65,10 +65,21 @@
     <script type="text/javascript" src="js/js.js"></script>
     <script src="js/Qixi.js"></script>
     <script type="text/javascript">
+    $(function(){
+        var container = $('#content');
+        var swipe = Swipe(container);
 
-        var distX = calculateDist('x',0.5);
-        var distY = calculateDist('y',0.5);
-        walkRun(10000,distX)
+
+        var boy = BoyWalk();
+        boy.walkTo(2000,0.2,0)
+            .then(function(){
+                boy.setColoer('red');
+            })
+            .then(function(){
+                return boy.walkTo(2000,0.4);
+            })
+    })
+
     </script>
 </body>
 </html>
