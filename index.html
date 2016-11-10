@@ -52,6 +52,8 @@
                     <div class="a_background_middle"></div>
                     <div class="a_background_botton"></div>
                 </div>
+                <!-- 太阳 -->
+                <div id="sun" class=" rotation"></div>
             </li>
             <!-- 第二副画面 -->
             <li> 页面2 </li>
@@ -68,15 +70,18 @@
     $(function(){
         var container = $('#content');
         var swipe = Swipe(container);
-
+        function scrollTo(time, proportionX) {
+            var distX = container.width() * proportionX;
+            swipe.scrollTo(distX, time);
+        }
 
         var boy = BoyWalk();
         boy.walkTo(2000,0.2,0)
             .then(function(){
-                boy.setColoer('red');
+                scrollTo(5000,1)
             })
             .then(function(){
-                return boy.walkTo(2000,0.4);
+                return boy.walkTo(5000,0.2);
             })
     })
 
