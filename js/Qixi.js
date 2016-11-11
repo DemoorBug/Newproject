@@ -34,6 +34,10 @@ function BoyWalk() {
     // 动画处理 //
     //////////
 
+    // 暂停走路
+    function pauseWalk() {
+        $boy.addClass('pauseWalk');
+    }
     //恢复走路
     function restoreWalk(){
         $boy.removeClass('pauseWalk');
@@ -77,6 +81,42 @@ function BoyWalk() {
         return di;
     }
 
+
+    function doorAction(left, right, time) {
+        var $door = $('.door');
+        var doorLeft = $('.door-left');
+        var doorRight = $('.door-right');
+        var defer = $.Deferred();
+        var count = 2;
+        // 等待开门完成
+        var complete = function() {
+            if (count == 1) {
+                defer.resolve();
+                return;
+            }
+            count--;
+        };
+        doorLeft.transition({
+            'left': left
+        }, time, complete);
+        doorRight.transition({
+            'left': right
+        }, time, complete);
+        return defer;
+    }
+
+    // 开门
+    function openDoor() {
+        return doorAction('-50%', '100%', 2000);
+    }
+
+    // 关门
+    function shutDoor() {
+        return doorAction('0%', '50%', 2000);
+    }
+
+
+
     return {
         //开始走路
         walkTo: function(time,proportionX,proportionY) {
@@ -84,6 +124,14 @@ function BoyWalk() {
             var distY = calculateDist('y',proportionY); 
             return walkRun(time,distX,distY);
         },
+        // 走进商店
+        toShop: function() {
+            return walkToShop.apply(null, arguments);
+        },
+        // 走出商店
+        outShop: function() {
+            return walkOutShop.apply(null, arguments);
+        }, 
         //停止走路
         stopWalk: function(){
             pauseWalk();
